@@ -1,0 +1,30 @@
+/* YourComponent.module.css */
+.scrollbar {
+    height: 400px;
+    overflow-y: auto;
+  }
+  
+  .scrollbar::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .scrollbar::-webkit-scrollbar-track {
+    background: rgb(16, 221, 232)
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #1c609b;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Firefox scrollbar styles */
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #1c609b;
+  }
+  

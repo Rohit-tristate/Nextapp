@@ -51,6 +51,7 @@ export const getAllpost = async () => {
     // Log the error or handle it as needed
     console.error("Failed to fetch posts:", error);
     toast.error("error")
-    return []; // Return an empty array or handle the error appropriately
+    throw new Error("error")
+    // return []; // Return an empty array or handle the error appropriately
   }
 };

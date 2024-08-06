@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Admincard from "./Admincard";
 import { useUser } from "./Context";
@@ -27,7 +26,7 @@ export default function AdminDisplay(props) {
 
       if (arr.length > 0) setFilter(arr);
     } else {
-      console.log("initialdata");
+      
       setFilter(data);
     }
   }, [search]);
@@ -37,7 +36,7 @@ export default function AdminDisplay(props) {
 
   return (
     <div>
-      <div className=" h-[400px] overflow-y-auto scrollbar-thumb-slate-800 ">
+      <div className=" h-[400px] overflow-y-scroll scrollbar  scrollbar-track-slate-100   scrollbar-thumb-slate-700  ">
         {filter && filter.map((val) => <Admincard arr={val} />)}
       </div>
     </div>

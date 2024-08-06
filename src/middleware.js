@@ -1,15 +1,14 @@
 "use client";
 import { NextResponse } from "next/server";
 
-const isUserAuthenticated = () => {
-  const userToken = localStorage.getItem("user");
-  const userexist = JSON.parse(userToken);
-  console.log("localstroge", userexist);
 
-  return !!userexist;
-};
+  
 
+ 
 export function middleware(req) {
+
+  
+  
   //   console.log("middelware execute");
   //   if (req.nextUrl.pathname === "/post") {
   //     if (isUserAuthenticated()) {
@@ -19,6 +18,4 @@ export function middleware(req) {
   //   return NextResponse.next();
 }
 
-export const config = {
-  matcher: ["/post"],
-};
+

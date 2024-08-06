@@ -1,6 +1,6 @@
 "use client";
 
-import { Paper } from "@mui/material";
+import { Paper, Tooltip } from "@mui/material";
 // import FavoriteIcon from '@material-ui/icons/Favorite';
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -23,7 +23,9 @@ export default function PostCard(props) {
             <button
               onClick={() => router.push(`/auth/Editpost/${props.obj._id}`)}
             >
-              <EditIcon className="w-[20px]  hover:text-red-500" />
+              <Tooltip title="Edit profile">
+                <EditIcon className="w-[20px]  hover:text-red-500" />
+              </Tooltip>
             </button>
           </div>
         )}
