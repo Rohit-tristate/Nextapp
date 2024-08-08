@@ -2,15 +2,10 @@ import axios from "axios";
 import { toast } from "react-toastify";
 export const revalidate = 0; //
 export const getPostList = async () => {
-
   console.log("env");
 
-
-
   try {
-    
-
-    const res = await fetch("http://localhost:3000/api/Getpost", {
+    const res = await fetch(process.env.GET_POSTLIST_URL, {
       headers: {
         "Cache-Control": "no-store",
       },
@@ -26,7 +21,7 @@ export const getPostList = async () => {
 
 export const Userlogin = async (credintial) => {
   try {
-    const res = await axios.post("http://localhost:3000/api/Login", credintial);
+    const res = await axios.post(process.env.USER_LOGIN_URL, credintial);
     if (res.data.message.length > 0) {
       return res.data.message;
     } else {
@@ -47,10 +42,7 @@ export const Userlogin = async (credintial) => {
 
 export const UserRegistration = async (credintial) => {
   try {
-    const res = await axios.post(
-      "http://localhost:3000/api/Register",
-      credintial
-    );
+    const res = await axios.post(process.env.USER_REGISTRATION_URL, credintial);
     toast.success("user register successfully ");
     return true;
   } catch (error) {
@@ -66,7 +58,7 @@ export const NewPost = async (post) => {
     const userdata = localStorage.getItem("user");
     const userExist = JSON.parse(userdata);
     const obj = { ...post, ...userExist };
-    const res = await axios.post("http://localhost:3000/api/post", obj);
+    const res = await axios.post(process.env.NEWPOST_URL, obj);
 
     if (res.status === 201) {
       toast.success("Post Created Successfully");
@@ -82,7 +74,7 @@ export const NewPost = async (post) => {
 
 export const GetUserDataByID = async (id) => {
   try {
-    const res = await axios.post(`http://localhost:3000/api/Getpost/post`, {
+    const res = await axios.post(process.env.GETDATA_BY_ID_URL, {
       id,
     });
 
@@ -105,9 +97,7 @@ export const GetUserDataByID = async (id) => {
 export const DeletePost = async (id) => {
   try {
     if (window.confirm("do you want to delete this post")) {
-      const res = await axios.delete(
-        `http://localhost:3000/api/deletepost?id=${id}`
-      );
+      const res = await axios.delete(`${process.env.DELETE_POST_URL}?id=${id}`);
 
       toast.success("post is delete sucessfully");
       return true;
@@ -122,7 +112,7 @@ export const DeletePost = async (id) => {
 
 export const AdminLogin = async (data) => {
   try {
-    const res = await axios.post("http://localhost:3000/api/Admin/login", data);
+    const res = await axios.post(process.env.ADMIN_LOGIN_URL, data);
 
     if (res?.data?.message) {
       toast.success("user login successfully");
@@ -138,10 +128,7 @@ export const AdminLogin = async (data) => {
 // ADD ADMIN
 export const AddAdmin = async (data) => {
   try {
-    const res = await axios.post(
-      "http://localhost:3000/api/Admin/register",
-      data
-    );
+    const res = await axios.post(process.env.ADD_ADMIN_URL, data);
     toast.success("Admin register successfully ");
 
     return true;
