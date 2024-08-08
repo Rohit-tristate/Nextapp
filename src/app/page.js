@@ -1,9 +1,8 @@
 // "use client";
-import Link from "next/link";
 
 import { Roboto } from "next/font/google";
 import PostDisplay from "@/Components/PostDisplay";
- import Main from './(main)/page'
+import Main from "./(main)/page";
 
 import Navbar from "@/Components/Navbar";
 const roboto = Roboto({
@@ -12,20 +11,10 @@ const roboto = Roboto({
   display: "swap",
 });
 
-
-
 export default function Home() {
-
- 
-
-
-  
-  
-
   return (
     <div className=" mt-20 ">
-      <Navbar/>
-     
+      <Navbar />
 
       <section className=" bg-white  space-y-5  ">
         <h1 className="font-bold text-5xl  mx-auto   flex justify-center  ">
@@ -39,20 +28,15 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center mt-3 text-gray-400 ">
-          <p className="text-center w-[30%] ">
+          <p className="text-center lg:w-[45%]  ">
             Promptopia is an open ,source Ai prompting tools for Modern world To
             discover, create and share creative prompts{" "}
           </p>
         </div>
       </section>
-     
-
 
       <section>
-
-
         <PostDisplay />
-   
       </section>
     </div>
   );

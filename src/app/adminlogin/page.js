@@ -35,8 +35,8 @@ export default function Login() {
     const admindata = await AdminLogin(data)
 
     if (admindata) {
-      context.setAdminLogin(admindata);
       router.push("/admin");
+      context.setAdminLogin(admindata);
     }
 
     setLoading(false);

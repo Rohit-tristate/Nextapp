@@ -18,15 +18,13 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 
-
 const registerUser = async (data) => {
   const response = await axios.post("http://localhost:3000/api/Register", data);
   return response.data;
 };
 
-export default function Login() {
-
-  const router=useRouter();
+export default function Adduser() {
+  const router = useRouter();
   const queryClient = useQueryClient();
 
   const context = useUser();
@@ -72,39 +70,16 @@ export default function Login() {
     mutationFn: registerUser,
     onSuccess: () => {
       toast.success("User registered successfully");
-      router.push("/admin/user")
+      router.refresh();
       context.setActiveTab("all");
-        // queryClient.invalidateQueries(['userData'])
-        // queryClient.invalidateQueries(['postData'])
-
-      },
+      // queryClient.invalidateQueries(['userData'])
+      // queryClient.invalidateQueries(['postData'])
+    },
     onError: (error) => {
       console.log("postError", error);
       toast.error("Unable to Register User");
     },
   });
-
-  // const getRegister = async (data) => {
-  //   try {
-
-  //     console.log("data",data)
-  //     setLoading(true);
-  //     const res = await axios.post("http://localhost:3000/api/Register", data);
-  //     if(res){
-  //       toast.success("User register successfully ");
-  //       router.refresh();
-
-  //       context.setActiveTab("all")
-  //     }
-
-  //     // router.refresh();
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Unable to Register User");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   const formik = useFormik({
     initialValues: intitialAdmin,

@@ -1,16 +1,15 @@
 "use client";
 import { Paper } from "@mui/material";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import React, { useState } from "react";
-import AlluserError from "./@alluser/error";
+import React from "react";
 import Search from "@/Components/AdminSerach";
 import { useUser } from "@/Components/Context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Adduser from "@/Components/Adduser";
 
 const queryClient = new QueryClient();
 
-export default function layout({ children, adduser, alluser, removeuser }) {
-  const [text, setText] = useState("");
+export default function layout({ children}) {
+ 
 
   const context = useUser();
   console.log("tab", context.activeTab);
@@ -55,12 +54,8 @@ export default function layout({ children, adduser, alluser, removeuser }) {
         {/* main  */}
 
         <Paper className="mx-3 mt-4">
-          {context.activeTab === "all" &&
-            React.cloneElement(alluser, { key: "all" })}
-          {context.activeTab === "add" &&
-            React.cloneElement(adduser, { key: "add" })}
-          {context.activeTab === "delete" &&
-            React.cloneElement(removeuser, { key: "delete" })}
+          {context.activeTab === "all" && <div> {children}</div>}
+          {context.activeTab === "add" && <Adduser />}
         </Paper>
       </QueryClientProvider>
     </div>

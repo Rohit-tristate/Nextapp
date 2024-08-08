@@ -5,9 +5,7 @@ import { useUser } from "@/Components/Context";
 
 export default function Search() {
   const context = useUser();
- console.log("adminsearch",context)
 
-  const [text, setText] = useState("");
   return (
     <div>
       <div className="flex items-center ">

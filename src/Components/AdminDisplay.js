@@ -7,9 +7,11 @@ import { useUser } from "./Context";
 export default function AdminDisplay(props) {
   const [data, setData] = useState(props?.arr);
   const [filter, setFilter] = useState([]);
+  useEffect(() => {
+    setData(props?.arr);
+  }, [props?.arr]);
 
   const context = useUser();
-  console.log("query", context);
 
   if (data.length === 0)
     return <p className="text-center "> No User Record Found</p>;
@@ -23,22 +25,19 @@ export default function AdminDisplay(props) {
       arr = data.filter((val) =>
         val.user.toLowerCase().includes(search.toLowerCase())
       );
-     
 
-      if (arr.length > 0) setFilter(arr);
+      setFilter(arr);
     } else {
-      console.log("initialdata");
       setFilter(data);
     }
-  }, [search]);
-
-
-
+  }, [search, data]);
 
   return (
     <div>
       <div className=" h-[400px] overflow-y-auto scrollbar-thumb-slate-800 ">
-        {filter && filter.map((val) => <Admincard arr={val} />)}
+        {filter?.length===0 && (<p className="flex justify-center mt-5 ">No Records Found </p>)}
+        {filter &&
+          filter.map((val) => <Admincard key={val.userid} arr={val} />)}
       </div>
     </div>
   );

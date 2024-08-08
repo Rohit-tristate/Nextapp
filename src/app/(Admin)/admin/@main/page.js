@@ -1,7 +1,26 @@
+"use client";
+import { Totaluser, getPostList } from "@/Components/Allapi";
 import Dashboarditem from "@/Components/DashboardItem";
 import { Paper } from "@mui/material";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function main() {
+  const [totalPost, setTotalPost] = useState(0);
+  const [totalUser, setTotalUser] = useState(0);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const postdata = await getPostList();
+    const userdata = await Totaluser();
+
+    setTotalPost(postdata.message.length)
+    setTotalUser(userdata.message.length)
+   
+  };
+
   return (
     <Paper className=" ">
       <div className="h-[80vh] overflow-y-auto">
@@ -9,11 +28,22 @@ export default function main() {
           Welcome to Dashboard
         </h1>
 
-        <div className="grid grid-cols-3 mx-[10%]  p-3 mt-5 gap-4 text-center mx-2 ">
-        <Dashboarditem total={20} para="More than thousand plus post postedare  Weekly" title="Total Post"/>
-        <Dashboarditem total={10} para="More than 100 user register Weekly" title="Total User"/>
-        <Dashboarditem total={13} para="`100 plus Admin are there for your queries" title=" Admin"/>
-       
+        <div className="grid grid-cols-3 mx-[10%]  p-3 mt-5 gap-4 text-center">
+          <Dashboarditem
+            total={  totalPost}
+            para="Unlimited Post"
+            title="Total Post"
+          />
+          <Dashboarditem
+            total={totalUser}
+            para="Free Registration"
+            title="Total User"
+          />
+          <Dashboarditem
+            total={13}
+            para="Become a Admin"
+            title=" Admin"
+          />
         </div>
       </div>
     </Paper>

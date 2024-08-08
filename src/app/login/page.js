@@ -67,28 +67,24 @@ export default function Login() {
     try {
       setLoading(true);
       const res = await Userlogin(data);
-         if (res) {
+      if (res) {
         userLogin.login(res[0]);
-        toast.success("user login successfully");
         router.push("/");
+        toast.success("user login successfully");
       }
     } catch (error) {
       console.log(error);
-      
     } finally {
       setLoading(false);
     }
   };
 
   const getRegister = async (data) => {
-   
-      setLoading(true);
-      const res = await UserRegistration(data)
-     if(res)
-      setLogin(true);
-    
-      setLoading(false);
- 
+    setLoading(true);
+    const res = await UserRegistration(data);
+    if (res) setLogin(true);
+
+    setLoading(false);
   };
 
   const formik = useFormik({

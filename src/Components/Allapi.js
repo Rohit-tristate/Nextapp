@@ -2,11 +2,13 @@ import axios from "axios";
 import { toast } from "react-toastify";
 export const revalidate = 0; //
 export const getPostList = async () => {
+
+  console.log("env");
+
+
+
   try {
-    // const res = await fetch("http://localhost:3000/api/Getpost", {
-    //   cache: "no-store",
-    // });
-    console.log("api");
+    
 
     const res = await fetch("http://localhost:3000/api/Getpost", {
       headers: {
@@ -146,5 +148,21 @@ export const AddAdmin = async (data) => {
   } catch (error) {
     console.log(error);
     toast.error("Unable to Register User");
+  }
+};
+
+export const Totaluser = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/getuser", {
+      headers: {
+        "Cache-Control": "no-store",
+      },
+    });
+
+    const result = await res.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+    toast.error("something went Wrong");
   }
 };
