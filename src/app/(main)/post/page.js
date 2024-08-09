@@ -70,11 +70,11 @@ export default function page() {
 
   return (
     <div className="mt-20">
-      <form onSubmit={handleSubmit} className="w-[50%] mx-auto">
-        <h1 className="text-5xl font-semibold text-blue-500 text-left mt-5">
+      <form onSubmit={handleSubmit} className="lg:w-[50%]   mx-[10%]   lg:mx-auto">
+        <h1 className="md:text-5xl  text-2xl  font-semibold text-blue-500 text-left mt-5">
           Create Post
         </h1>
-        <p className="mt-4 text-gray-400">
+        <p className="mt-4 md:text-auto text-[12px]  text-gray-400">
           The English prefix post- means “after.” Examples using this prefix
           include postgame and postseason. An easy way to remember that the
           prefix post- means “after” is through the word postpone, for when you
@@ -104,9 +104,9 @@ export default function page() {
             <textarea
               name="post"
               placeholder="Write your post here"
-              className="bg-white border p-2 outline-none border-gray-300"
+              className="bg-white border p-2 outline-none border-gray-300 w-full "
               rows={5}
-              cols={85}
+              // cols={85}
               onChange={handleChange}
             />
             {errors.post && touched.post && (
@@ -133,7 +133,7 @@ export default function page() {
                 <p className="text-xs text-red-500 mt-1 ">{errors.tag}</p>
               )}
             </div>
-            <div className="flex justify-end space-x-3 mt-5">
+            <div className="flex  justify-end   space-x-3 mt-5">
               <button
                 onClick={() => {
                   router.push("/");

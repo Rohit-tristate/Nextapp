@@ -1,18 +1,25 @@
 "use client";
 import { Paper } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Search from "@/Components/AdminSerach";
 import { useUser } from "@/Components/Context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Adduser from "@/Components/Adduser";
+import Mobilesearch from "@/Components/Mobilesearch";
+import SearchIcon from '@mui/icons-material/Search';
 
 const queryClient = new QueryClient();
 
-export default function layout({ children}) {
- 
-
+export default function layout({ children }) {
   const context = useUser();
+
+  const [openSearch,setOpenSearch]=useState(false)
   console.log("tab", context.activeTab);
+
+  const toggleSearch=()=>{
+    context.setSearchTextValue("")
+    setOpenSearch(!openSearch )
+  }
 
   return (
     <div>
@@ -48,8 +55,22 @@ export default function layout({ children}) {
             </button>
           </div>
           {/* Search bar  */}
-          <Search />
+          <div className="md:block hidden " >
+            <Search />
+          </div>
+
+          <div className="md:hidden flex items-center  " >
+          <SearchIcon  onClick={toggleSearch}/>
+          </div>
+          
         </Paper>
+
+
+
+        {/* for small screen  */}
+      {  openSearch && <div className="md:hidden block">
+            <Mobilesearch />
+          </div>}
 
         {/* main  */}
 

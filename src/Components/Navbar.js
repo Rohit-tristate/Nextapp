@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <div className={`   w-full border mx-1 fixed top-0 bg-white    p-3  `}>
-      <div className=" w-[80%] mx-auto  bg-white  flex items-center   justify-between  ">
+      <div className=" md:w-[80%] mx-auto  bg-white  flex items-center   justify-between  ">
         <div className="space-x-2  flex ">
           <p className="flex items-center ">
             {path === "/" ? null : (
@@ -38,7 +38,7 @@ export default function Navbar() {
             )}
           </p>
 
-          <h1 className="font-semibold text-xl  bg-gradient-to-tr from-orange-300 to-orange-600 bg-clip-text text-transparent inline-block ">
+          <h1 className="font-semibold text-xl  bg-gradient-to-tr from-orange-300 to-orange-600 bg-clip-text text-transparent inline-block max-[550px]:text-[16px]  ">
             Propmptopia
           </h1>
         </div>

@@ -120,19 +120,19 @@ export default function Login() {
 
   return (
     <>
-      <Paper className="mt-20 w-[50%] mx-auto p-5  ">
+      <Paper className="mt-20 xl:w-[50%] md:w-[80%] w-[90%]  mx-auto md:p-5 p-2  ">
         {loading && <LinearProgress className="" />}
         <div className="flex relative justify-center  ">
           <ArrowBackIcon
             className="absolute left-1"
             onClick={() => router.push("/")}
           />
-          <h1 className="text-center font-semibold text-xl ">
+          <h1 className="text-center font-semibold text-xl md:bg-yellow-300 lg:bg-yellow-400 xl:bg-green-300 ">
             {islogin ? "Login" : "Register"}{" "}
           </h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="mx-10 space-y-4 ">
+        <form onSubmit={handleSubmit} className="md:mx-10 mx-2 space-y-4 ">
           <div>
             <p> UserName</p>
             <Paper className="border  ">
@@ -196,7 +196,7 @@ export default function Login() {
             {!loading ? (
               <Button
                 type="submit"
-                className="text-black border-black  hover:bg-black hover:text-white"
+                className="text-black border-black  hover:bg-black hover:text-white  md:w-auto   md:mb-auto mb-5 w-full  "
                 variant="outlined"
               >
                 Submit
@@ -210,7 +210,7 @@ export default function Login() {
         <div>
           {!islogin && (
             <p
-              className="flex justify-center text-[15px] hover:text-blue-800 cursor-pointer  mx-10 my-2 "
+              className="flex justify-center text-[15px]   hover:text-blue-800 cursor-pointer  mx-10 my-2 "
               onClick={toggleLogin}
             >
               Login

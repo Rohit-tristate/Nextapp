@@ -17,18 +17,18 @@ export default function Home() {
       <Navbar />
 
       <section className=" bg-white  space-y-5  ">
-        <h1 className="font-bold text-5xl  mx-auto   flex justify-center  ">
+        <h1 className="font-bold text-3xl  lg:text-5xl mx-auto   flex justify-center  ">
           Discover & Share
         </h1>
 
         <div className="flex justify-center ">
-          <h1 className="font-bold text-5xl   text-transparent  bg-clip-text  justify-center inline-block  bg-gradient-to-br  from-orange-300 to-orange-500  text-center  ">
+          <h1 className="font-bold   text-3xl  lg:text-5xl text-transparent  bg-clip-text  justify-center inline-block  bg-gradient-to-br  from-orange-300 to-orange-500  text-center  ">
             AI Powerered Prompts
           </h1>
         </div>
 
-        <div className="flex justify-center mt-3 text-gray-400 ">
-          <p className="text-center lg:w-[45%]  ">
+        <div className="flex justify-center mt-3 text-gray-400  ">
+          <p className="text-center   md:mx-1  mx-[10%]  md:w-[50%] ">
             Promptopia is an open ,source Ai prompting tools for Modern world To
             discover, create and share creative prompts{" "}
           </p>

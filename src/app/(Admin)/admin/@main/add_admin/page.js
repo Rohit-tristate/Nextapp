@@ -72,7 +72,7 @@ export default function login() {
 
   return (
     <>
-      <Paper className="mt-20 w-[80%] mx-auto p-5  ">
+      <Paper className="mt-20 md:w-[80%] w-full mx-auto md:p-5 p-2  ">
         {loading && <SimpleBackdrop className="w-[50%] h-[50%] " />}
         <div className="flex relative justify-center  ">
           {/* <ArrowBackIcon  className="absolute left-1" onClick={()=>router.back()} /> */}
@@ -81,7 +81,7 @@ export default function login() {
           </h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="mx-10 space-y-4 ">
+        <form onSubmit={handleSubmit} className="mx-10 max-[500px]:mx-2  sm:mt-5  space-y-4 ">
           <div>
             <p> UserName</p>
             <Paper className="border  ">
@@ -90,7 +90,7 @@ export default function login() {
                 name="user"
                 value={formik.values.user}
                 type="text"
-                className="p-2  border  w-full"
+                className="p-2  border  w-full "
               />
             </Paper>
 
@@ -139,11 +139,11 @@ export default function login() {
             )}
           </div>
 
-          <p className="flex justify-end ">
+          <p className="flex md:justify-end justify-center">
             {!loading ? (
               <Button
                 type="submit"
-                className="text-black border-black  hover:bg-black hover:text-white"
+                className="text-black border-black  hover:bg-black hover:text-white  md:w-auto  w-full "
                 variant="outlined"
               >
                 Submit

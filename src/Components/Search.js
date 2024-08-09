@@ -58,7 +58,7 @@ export default function Search(props) {
 
       
 
-      <Paper elevation={2} className="lg:w-[70%]  xl:w-[50%]   mx-auto">
+      <Paper elevation={2} className="lg:w-[70%] md:w-[90%] xl:w-[50%] w-[90%]   mx-auto">
         <input
           style={{ outlineColor: "orange" }}
           value={search}
@@ -75,7 +75,7 @@ export default function Search(props) {
       {loading ? (
         <p className="flex justify-center ">Fetching data...</p>
       ) : (
-        <div className="xl:w-[70%] xl:mx-auto grid grid-cols-3 lg:mx-20 gap-3 p-4 ">
+        <div className="xl:w-[70%] xl:mx-auto grid lg:grid-cols-3  md:grid-cols-2 lg:mx-20 gap-3 p-4 ">
          
           {filter?.length > 0 ? (
             filter.map((val) => <PostCard key={val._id} obj={val} />)

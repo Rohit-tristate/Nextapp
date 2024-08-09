@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Admincard from "./Admincard";
 import { useUser } from "./Context";
+import Infocard from "./Infocard";
 
 export default function AdminDisplay(props) {
   const [data, setData] = useState(props?.arr);
@@ -34,10 +35,17 @@ export default function AdminDisplay(props) {
 
   return (
     <div>
-      <div className=" h-[400px] overflow-y-auto scrollbar-thumb-slate-800 ">
+      <div className="hidden md:block  h-[400px] overflow-y-auto scrollbar-thumb-slate-800 ">
         {filter?.length===0 && (<p className="flex justify-center mt-5 ">No Records Found </p>)}
         {filter &&
           filter.map((val) => <Admincard key={val.userid} arr={val} />)}
+      </div>
+
+      <div className=" md:hidden block h-[400px] overflow-y-auto scrollbar-thumb-slate-800 space-y-3  ">
+      {filter?.length===0 && (<p className="flex justify-center mt-5 ">No Records Found </p>)}
+        {filter &&
+          filter.map((val) => <Infocard key={val.userid} arr={val} />)}
+
       </div>
     </div>
   );

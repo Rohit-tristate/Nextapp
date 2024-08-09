@@ -106,7 +106,7 @@ export default function Updatepost(props) {
   };
 
   return (
-    <div className="mt-20 w-[70%] mx-auto p-3  ">
+    <div className="mt-20 lg:w-[70%] lg:mx-auto p-3  ">
       <Paper className="flex p-4  space-x-10 ">
         <div className="w-[50px] h-[50px] bg-orange-500 text-2xl  rounded-full flex items-center  justify-center  font-bold text-white">
           {formik?.values?.user?.charAt(0).toUpperCase()}
@@ -134,7 +134,7 @@ export default function Updatepost(props) {
                 value={formik.values.title}
                 name="title"
                 type="text"
-                className="w-full border-gray-400 p-2 border mt-2  "
+                className="w-full border-gray-400 p-2 border mt-2 md:[15px] text-[15px] "
               ></input>
               {errors.title && touched.title && (
                 <p className="text-xs text-red-500 mt-1 ">{errors.title}</p>
@@ -147,9 +147,8 @@ export default function Updatepost(props) {
               value={formik.values.post}
               onChange={handleChange}
               placeholder="write your post here"
-              className="bg-white border p-2 outline-none  border-gray-300"
+              className="bg-white border p-2 outline-none w-full  md:text-[15px]  text-[12px] border-gray-300"
               rows={5}
-              cols={106}
             ></textarea>
 
             {errors.post && touched.post && (
@@ -171,7 +170,7 @@ export default function Updatepost(props) {
               value={formik.values.tag}
               name="tag"
               type="text"
-              className="w-full border-gray-400 p-2 border mt-2  "
+              className="w-full border-gray-400 p-2 border mt-2 md:[15px] text-[15px] "
             ></input>
             {errors.tag && touched.tag && (
               <p className="text-xs text-red-500 mt-1 ">{errors.tag}</p>
@@ -181,7 +180,7 @@ export default function Updatepost(props) {
               <button
                 onClick={() => router.push("/")}
                 type="button"
-                className="border p-1 border-black  rounded-sm  hover:bg-black hover:text-white  w-[100px] "
+                className="border p-1 border-black  rounded-sm   md:text-[15px] text-[12px]   hover:bg-black hover:text-white  w-[100px] "
               >
                 Cancel
               </button>
@@ -189,7 +188,7 @@ export default function Updatepost(props) {
               {loading ? (
                 <LoadingButtons title="updating..." />
               ) : (
-                <button className="border p-1 border-black  rounded-sm hover:bg-black hover:text-white  w-[100px] ">
+                <button className="border p-1 border-black  rounded-sm hover:bg-black hover:text-white md:text-[15px] text-[12px]   w-[100px] ">
                   Update
                 </button>
               )}

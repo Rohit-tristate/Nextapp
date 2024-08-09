@@ -8,12 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-
 export default function page(props) {
-  // const data = await getUserData();
-
-  // const postdata = await getPostData();
-
   const {
     data: userData,
     error: userDataError,
@@ -37,18 +32,17 @@ export default function page(props) {
   if (userLoading || postLoading)
     return (
       <div>
-        <Variants />
-        <Variants />
-        <Variants />
-        <Variants />
-        <Variants />
-        <Variants />
+        {Array(6)
+          .fill()
+          .map((_, i) => (
+            <Variants key={i} />
+          ))}
       </div>
     );
 
   if (userDataError || postError) {
-    console.log(userDataError);
-    console.log(postError);
+    console.log("userDataError", userDataError);
+    console.log("postError", postError);
     return <p className="flex justify-center ">somethings went wrong</p>;
   }
 
@@ -71,19 +65,19 @@ export default function page(props) {
 
   filterUniqueData();
 
-  console.log("temp", temp);  
+  console.log("temp", temp);
 
   return (
-    <div>
+    <div className="  ">
       <p>{props.text}</p>
-      <Paper className="grid grid-cols-9 space-x-2  bg-slate-800 text-white text-center   ">
+      <Paper className=" hidden  md:grid grid-cols-9 space-x-2  bg-slate-800 text-white text-center md:text-[14px] lg:text-auto    ">
         <p className="col-span-2 p-1 flex items-center justify-center   ">
           Name
         </p>
-        <p className="col-span-2 p-1 flex  items-center justify-center ">
+        <p className="col-span-2 p-1 flex    items-center justify-center ">
           Password
         </p>
-        <p className="col-span-3 p-2  flex items-center  justify-center  ">
+        <p className="col-span-3 p-2 lg;text-auto  flex items-center  justify-center  ">
           UserID
         </p>
         <p className="p-1  flex items-center  justify-center ">Post</p>
@@ -92,26 +86,19 @@ export default function page(props) {
       </Paper>
 
       {temp?.length > 0 && <AdminDisplay arr={temp} />}
+
     </div>
   );
 }
 
 const getUserData = async () => {
-  try {
-    const res = await axios("http://localhost:3000/api/getuser");
+  const res = await axios("http://localhost:3000/api/getuser");
 
-    if (res?.data?.message) return res.data.message;
-  } catch (error) {
-    console.log(error);
-  }
+  if (res?.data?.message) return res.data.message;
 };
 
 const getPostData = async () => {
-  try {
-    const res = await axios("http://localhost:3000/api/Getpost");
+  const res = await axios("http://localhost:3000/api/Getpost");
 
-    if (res?.data?.message) return res.data.message;
-  } catch (error) {
-    console.log(error);
-  }
+  if (res?.data?.message) return res.data.message;
 };

@@ -20,13 +20,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {/* <Provider> */}
-
         <UserProvider>
           <ToastContainer />
-
           <BasicModal />
-
-          {children}
+       
+            {children}
         </UserProvider>
 
         {/* </Provider> */}

@@ -98,7 +98,7 @@ export default function Adduser() {
 
   return (
     <>
-      <Paper className="mt-20 w-[80%] mx-auto p-5  ">
+      <Paper className="mt-20 md:w-[80%] mx-auto p-5  ">
         <div className="flex relative justify-center  ">
           {/* <ArrowBackIcon  className="absolute left-1" onClick={()=>router.back()} /> */}
           <h1 className="text-center font-semibold text-xl ">
@@ -106,9 +106,9 @@ export default function Adduser() {
           </h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="mx-10 space-y-4 ">
+        <form onSubmit={handleSubmit} className="md:mx-10 space-y-4 ">
           <div>
-            <p> UserName</p>
+            <p className="max-[500px]:text-[12px] "> UserName</p>
             <Paper className="border  ">
               <input
                 onChange={handleChange}
@@ -127,7 +127,7 @@ export default function Adduser() {
           </div>
 
           <div>
-            <p> Password</p>
+            <p className="max-[500px]:text-[12px]"> Password</p>
             <Paper className="border  ">
               <input
                 type="text"
@@ -146,7 +146,7 @@ export default function Adduser() {
           </div>
 
           <div>
-            <p> Confirm Password</p>
+            <p className="max-[500px]:text-[12px]" > Confirm Password</p>
             <Paper className="border  ">
               <input
                 type="text"

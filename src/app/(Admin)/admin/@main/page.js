@@ -24,11 +24,11 @@ export default function main() {
   return (
     <Paper className=" ">
       <div className="h-[80vh] overflow-y-auto">
-        <h1 className="flex justify-center text-2xl font-bold p-3 mt-3  ">
+        <h1 className="flex justify-center text-2xl font-bold p-3 mt-3 max-[500px]:text-md ">
           Welcome to Dashboard
         </h1>
 
-        <div className="grid grid-cols-3 mx-[10%]  p-3 mt-5 gap-4 text-center">
+        <div className="md:grid grid-cols-3 mx-[10%] max-[450px]:mx-[2%]  md:space-y-1 space-y-5 p-3 mt-5 gap-4 text-center">
           <Dashboarditem
             total={  totalPost}
             para="Unlimited Post"

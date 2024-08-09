@@ -14,13 +14,13 @@ export default function UserPostcard(props) {
     <>
       <Paper className="p-5 border rounded-md  ">
         <div className="flex justify-between  ">
-          <p className=" text-bold  p-1  text-xl ">{props.arr.title}</p>
-          <p className=" text-bold  p-1  text-[14px] italic text-gray-500 ">
+          <p className=" text-bold  p-1  text-[14px]  md:text-xl ">{props.arr.title}</p>
+          <p className=" text-bold  p-1 text-[14px] md:text-[14px] italic text-gray-500 ">
             {date}
           </p>
         </div>
 
-        <p className="text-justify text-gray-500  flex ">{props.arr.post}</p>
+        <p className="text-justify text-gray-500 md:text-auto text-[12px]   flex ">{props.arr.post}</p>
       </Paper>
     </>
   );
