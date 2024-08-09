@@ -2,28 +2,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 export const revalidate = 0; //
 export const getPostList = async () => {
-<<<<<<< HEAD
-  try {
-    console.log("env", process.env.GET_POSTLIST);
-    console.log(
-      "confiq",
-      process.env.GET_POSTLIST_URL,
-      process.env.USER_LOGIN_URL,
-      process.env.USER_REGISTRATION_URL,
-      process.env.NEWPOST_URL,
-      process.env.GETDATA_BY_ID_URL,
-      process.env.DELETE_POST_URL,
-      process.env.ADMIN_LOGIN_URL,
-      process.env.ADD_ADMIN_URL
-    );
 
-    console.log("api");
 
-=======
-  console.log("env");
 
   try {
->>>>>>> dev
+
     const res = await fetch(process.env.GET_POSTLIST_URL, {
       headers: {
         "Cache-Control": "no-store",
