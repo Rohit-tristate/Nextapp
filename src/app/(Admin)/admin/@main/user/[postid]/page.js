@@ -63,8 +63,8 @@ export default  function userpost({ params }) {
           <NameIcon name={myObject?.name?.charAt(0)?.toUpperCase()} />
         </div>
         <div className="p-2 space-y-1 ">
-          <p className="flex items-center text-2xl">{myObject?.name} </p>
-          <p className="text-xs text-gray-500  ">{myObject?.userid}</p>
+          <p className="flex items-center text-xl  md:text-2xl">{myObject?.name} </p>
+          <p className="md:text-xs max-[450px]:text-[10px]  text-gray-500  ">{myObject?.userid}</p>
         </div>
       </Paper>
 
@@ -74,7 +74,7 @@ export default  function userpost({ params }) {
             {finddata && finddata.map((val) => <UserPostcard arr={val} />)}
           </div>
         ) : (
-          <Paper className="p-3 flex justify-center items-center text-xl text-gray-500 font-bold  ">
+          <Paper className="p-3 flex justify-center items-center  text-[12px]  md:text-xl  text-gray-500 font-bold  ">
             No post Found
           </Paper>
         )}

@@ -18,15 +18,13 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 
-
 const registerUser = async (data) => {
   const response = await axios.post("http://localhost:3000/api/Register", data);
   return response.data;
 };
 
-export default function Login() {
-
-  const router=useRouter();
+export default function Adduser() {
+  const router = useRouter();
   const queryClient = useQueryClient();
 
   const context = useUser();
@@ -72,39 +70,16 @@ export default function Login() {
     mutationFn: registerUser,
     onSuccess: () => {
       toast.success("User registered successfully");
-      router.push("/admin/user")
+      router.refresh();
       context.setActiveTab("all");
-        // queryClient.invalidateQueries(['userData'])
-        // queryClient.invalidateQueries(['postData'])
-
-      },
+      // queryClient.invalidateQueries(['userData'])
+      // queryClient.invalidateQueries(['postData'])
+    },
     onError: (error) => {
       console.log("postError", error);
       toast.error("Unable to Register User");
     },
   });
-
-  // const getRegister = async (data) => {
-  //   try {
-
-  //     console.log("data",data)
-  //     setLoading(true);
-  //     const res = await axios.post("http://localhost:3000/api/Register", data);
-  //     if(res){
-  //       toast.success("User register successfully ");
-  //       router.refresh();
-
-  //       context.setActiveTab("all")
-  //     }
-
-  //     // router.refresh();
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Unable to Register User");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   const formik = useFormik({
     initialValues: intitialAdmin,
@@ -123,7 +98,7 @@ export default function Login() {
 
   return (
     <>
-      <Paper className="mt-20 w-[80%] mx-auto p-5  ">
+      <Paper className="mt-20 md:w-[80%] mx-auto p-5  ">
         <div className="flex relative justify-center  ">
           {/* <ArrowBackIcon  className="absolute left-1" onClick={()=>router.back()} /> */}
           <h1 className="text-center font-semibold text-xl ">
@@ -131,9 +106,9 @@ export default function Login() {
           </h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="mx-10 space-y-4 ">
+        <form onSubmit={handleSubmit} className="md:mx-10 space-y-4 ">
           <div>
-            <p> UserName</p>
+            <p className="max-[500px]:text-[12px] "> UserName</p>
             <Paper className="border  ">
               <input
                 onChange={handleChange}
@@ -152,7 +127,7 @@ export default function Login() {
           </div>
 
           <div>
-            <p> Password</p>
+            <p className="max-[500px]:text-[12px]"> Password</p>
             <Paper className="border  ">
               <input
                 type="text"
@@ -171,7 +146,7 @@ export default function Login() {
           </div>
 
           <div>
-            <p> Confirm Password</p>
+            <p className="max-[500px]:text-[12px]" > Confirm Password</p>
             <Paper className="border  ">
               <input
                 type="text"

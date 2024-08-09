@@ -35,7 +35,7 @@ export default function Admincard(props) {
   
 
    return (
-    <Paper className="  p-2  ">
+    <Paper className="  p-2 md:text-[13px]">
       {open && <AlertDialog userid={props?.arr?._id} handleClickOpen={handleClickOpen} handleClose={handleClose} open={open}/>}
       <Paper className="grid grid-cols-9 space-x-2     ">
         <p className="col-span-2 p-1 border hover:bg-gray-200 flex items-center   justify-center  ">
@@ -63,7 +63,7 @@ export default function Admincard(props) {
         
 
 
-        <div className="flex items-center justify-center space-x-2 ">
+        <div className=" flex items-center justify-center space-x-2 ">
           <div>
             <Tooltip className=" bg-white text-black " title="Delete">
               <DeleteIcon onClick={handleClickOpen} className="hover:text-red-500 " />

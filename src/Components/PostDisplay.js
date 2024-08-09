@@ -7,8 +7,9 @@ import SimpleBackdrop from "./Loading";
 import arr from "./Imagearr";
 import { useEffect, useState } from "react";
 import { getPostList } from "./Allapi";
+import Variants from "./Skeleton";
 
-export default  async  function PostDisplay() {
+export default async function PostDisplay() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -22,8 +23,6 @@ export default  async  function PostDisplay() {
       const result = await getPostList();
       if (result) {
         setData(result.message);
-
-        console.log("homepage",result.message);
       }
     } catch (error) {
       toast.error("something went wrong");
@@ -32,37 +31,20 @@ export default  async  function PostDisplay() {
     }
   };
 
-
-  
-
   return (
     <div className="bg-white  mt-10">
-      {(data && data.length > 0) ? (
+      {data && data.length > 0 ? (
         <Search arr={data} />
       ) : (
-        <p className="flex justify-center ">Fetching data...</p>
+        <div className="lg:w-[70%] grid grid-cols-3 gap-2  xl:w-[50%]   mx-auto">
+          <Variants/>
+          <Variants/>
+          <Variants/>
+          </div>
+
       )}
     </div>
   );
 }
-
-
-// export const getPostList = async () => {
-//   try {
-//     // const res = await fetch("http://localhost:3000/api/Getpost", {
-//     //   cache: "no-store",
-//     // });
-//     console.log("api")
-
-//     const res = await fetch("http://localhost:3000/api/Getpost", {
-//       cache: 'no-store' 
-//     });
-//     const result = await res.json();
-  
-//     return result;
-//   } catch (error) {
-//     console.log("Postlist".error);
-//   }
-// };
 
 

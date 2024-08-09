@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { useUser } from "@/Components/Context";
 
-export default function Search() {
+export default function Mobilesearch() {
   const context = useUser();
 
   return (
-    <div>
-      <div className="flex items-center ">
+    <div className="mx-3  p-3 flex justify-center  ">
+      <div className="flex items-center  w-full ">
         <input
-          className="bg-gray-100 p-2 w-[300px] outline-slate-800  "
+          className="border  p-2 w-full outline-slate-800  "
           onChange={(e) => context.setSearchTextValue(e.target.value)}
           type="text"
           placeholder="search"

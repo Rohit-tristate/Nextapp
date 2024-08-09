@@ -12,7 +12,7 @@ export default function Search(props) {
 
   const [search, setSearch] = useState("");
 
-  console.log("filter",props)
+  
 
   useEffect(() => {
     let arr = data;
@@ -39,6 +39,7 @@ export default function Search(props) {
         return seen.has(key) ? false : seen.add(key);
       });
 
+
       setFilter(combinedResults);
     } else {
       setFilter(data);
@@ -55,7 +56,9 @@ export default function Search(props) {
     <div className="bg-white  mt-10">
       {/* searchbar  */}
 
-      <Paper elevation={2} className="w-[50%] mx-auto">
+      
+
+      <Paper elevation={2} className="lg:w-[70%] md:w-[90%] xl:w-[50%] w-[90%]   mx-auto">
         <input
           style={{ outlineColor: "orange" }}
           value={search}
@@ -70,15 +73,12 @@ export default function Search(props) {
       {/* display PostCard */}
 
       {loading ? (
-        <div className="w-[70%] mx-auto grid grid-cols-3  gap-3 p-4 ">
-          <Variants />
-          <Variants />
-          <Variants />
-        </div>
+        <p className="flex justify-center ">Fetching data...</p>
       ) : (
-        <div className="w-[70%] mx-auto grid grid-cols-3  gap-3 p-4 ">
+        <div className="xl:w-[70%] xl:mx-auto grid lg:grid-cols-3  md:grid-cols-2 lg:mx-20 gap-3 p-4 ">
+         
           {filter?.length > 0 ? (
-            filter.map((val) => <PostCard key={val.id} obj={val} />)
+            filter.map((val) => <PostCard key={val._id} obj={val} />)
           ) : (
             <p className="text-center col-span-3 ">No post found</p>
           )}

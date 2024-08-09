@@ -1,19 +1,25 @@
 "use client";
 import { Paper } from "@mui/material";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import React, { useState } from "react";
-import AlluserError from "./@alluser/error";
 import Search from "@/Components/AdminSerach";
 import { useUser } from "@/Components/Context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Adduser from "@/Components/Adduser";
+import Mobilesearch from "@/Components/Mobilesearch";
+import SearchIcon from '@mui/icons-material/Search';
 
 const queryClient = new QueryClient();
 
-export default function layout({ children, adduser, alluser, removeuser }) {
-  const [text, setText] = useState("");
-
+export default function layout({ children }) {
   const context = useUser();
+
+  const [openSearch,setOpenSearch]=useState(false)
   console.log("tab", context.activeTab);
+
+  const toggleSearch=()=>{
+    context.setSearchTextValue("")
+    setOpenSearch(!openSearch )
+  }
 
   return (
     <div>
@@ -49,18 +55,28 @@ export default function layout({ children, adduser, alluser, removeuser }) {
             </button>
           </div>
           {/* Search bar  */}
-          <Search />
+          <div className="md:block hidden " >
+            <Search />
+          </div>
+
+          <div className="md:hidden flex items-center  " >
+          <SearchIcon  onClick={toggleSearch}/>
+          </div>
+          
         </Paper>
+
+
+
+        {/* for small screen  */}
+      {  openSearch && <div className="md:hidden block">
+            <Mobilesearch />
+          </div>}
 
         {/* main  */}
 
         <Paper className="mx-3 mt-4">
-          {context.activeTab === "all" &&
-            React.cloneElement(alluser, { key: "all" })}
-          {context.activeTab === "add" &&
-            React.cloneElement(adduser, { key: "add" })}
-          {context.activeTab === "delete" &&
-            React.cloneElement(removeuser, { key: "delete" })}
+          {context.activeTab === "all" && <div> {children}</div>}
+          {context.activeTab === "add" && <Adduser />}
         </Paper>
       </QueryClientProvider>
     </div>

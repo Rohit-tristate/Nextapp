@@ -13,14 +13,14 @@ export default function Home() {
  
 
   return (
-    <div className=" mt-20 ">
+    <div className=" mt-20">
       <section className=" bg-white  space-y-5  ">
-        <h1 className="font-bold text-5xl  mx-auto   flex justify-center  ">
+        <h1 className="font-bold  text-xl  mx-auto   flex justify-center  ">
           Discover & Share
         </h1>
 
         <div className="flex justify-center ">
-          <h1 className="font-bold text-5xl   text-transparent  bg-clip-text  justify-center inline-block  bg-gradient-to-br  from-orange-300 to-orange-500  text-center  ">
+          <h1 className="font-bold lg:text-5xl text-3xl   text-transparent  bg-clip-text  justify-center inline-block  bg-gradient-to-br  from-orange-300 to-orange-500  text-center  ">
             AI Powerered Prompts
           </h1>
         </div>
